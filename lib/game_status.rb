@@ -21,7 +21,6 @@ WIN_COMBINATIONS = [
   [6,4,2]
 ]
 
-# Define won?, full?, draw?, over?, and winner below
 def won?(board)
   WIN_COMBINATIONS.detect do |combo|
     board[combo[0]] == board[combo[1]] &&
@@ -30,11 +29,19 @@ def won?(board)
   end
 end
 
-def full?(board)
+# def won?(board, winning_combo)
+# winning_combo.any? do |combo|
+#     combo.all? do |i|
+#       $board[i] == currentPlayer
+#     end
+#   end
+#  end
+
+def full?(board)  #I don't understand why this is needed, if keeping track of turn counts
   board.all?{|token| token == "X" || token == "O"}
 end
 
-def draw?(board)
+def draw?(board) #I don't understand why this is needed, if keeping track of turn counts
   full?(board) && !won?(board)
 end
 
