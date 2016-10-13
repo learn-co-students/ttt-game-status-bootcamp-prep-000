@@ -1,3 +1,5 @@
+## I realize this is horrendously sloppy... I figure I'll learn with hindsight as I progress through the lessons.
+
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
