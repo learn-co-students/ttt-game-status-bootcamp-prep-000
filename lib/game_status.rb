@@ -28,39 +28,30 @@ WIN_COMBINATIONS.find do |win_combination| # find instead of each??
   win_index_2 = win_combination[1]
   win_index_3 = win_combination[2]
 
-  # win_index_4 = win_combination[3]
-  # win_index_5 = win_combination[4]
-  # win_index_6 = win_combination[5]
   #win_combination.each do |win_index|
 
   position_1 = board[win_index_1] # load the value of the board at win_index_1
   position_2 = board[win_index_2] # load the value of the board at win_index_2
   position_3 = board[win_index_3] # load the value of the board at win_index_3
 
-  # position_4 = board[win_index_4] # load the value of the board at win_index_1
-  # position_5 = board[win_index_5] # load the value of the board at win_index_2
-  # position_6 = board[win_index_6] # load the value of the board at win_index_3
   #win_index.each do |position|
-
-    #puts "#{position}"
 
   #if position == "X"
   #if position.each == "X"
     if position_1 == "X" && position_2 == "X" && position_3 == "X"
-    #if position_4 == "X" && position_5 == "X" && position_6 == "X"
-    #if position.each == "X"
 
     else
       return false
     end # end if...else statement
 
     puts win_combination
-    #puts "#{win_combination}"
     return win_combination # return the win_combination indexes that won.
 
-  #end # end for-each-loop
-  #end # end for-each-loop
   end # end for-each-loop... AKA WIN_COMBINATIONS.each do |win_combination|
+
+  puts win_combination
+  return win_combination # return the win_combination indexes that won.
+
 end # end method
 
 
