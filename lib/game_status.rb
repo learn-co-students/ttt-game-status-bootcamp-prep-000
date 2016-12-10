@@ -22,34 +22,25 @@ WIN_COMBINATIONS.find do |win_combination| # find instead of each??
   # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
   # grab each index from the win_combination that composes a win.
 
-  #puts win_combination.inspect
-
   win_index_1 = win_combination[0]
   win_index_2 = win_combination[1]
   win_index_3 = win_combination[2]
-
-  #win_combination.each do |win_index|
 
   position_1 = board[win_index_1] # load the value of the board at win_index_1
   position_2 = board[win_index_2] # load the value of the board at win_index_2
   position_3 = board[win_index_3] # load the value of the board at win_index_3
 
-  #win_index.each do |position|
-
-  #if position == "X"
-  #if position.each == "X"
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      puts win_combination
-      return win_combination # return the win_combination indexes that won.
-
+    if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+      puts win_combination # output win_combination so i can see what the hell is happening
+      true # not 'return true', just 'true' -- find method looks for what evaluates to true and returns the element that caused the true evaluation
     else
-      return false
+      false # not 'return false', just 'false' -- see above note for 'true'
     end # end if...else statement
 
   end # end for-each-loop... AKA WIN_COMBINATIONS.each do |win_combination|
 
-  puts win_combination
-  return win_combination # return the win_combination indexes that won.
+  #puts win_combination
+  #return win_combination # return the win_combination indexes that won.
 
 end # end method
 
