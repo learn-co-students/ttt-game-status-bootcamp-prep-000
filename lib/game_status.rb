@@ -45,15 +45,19 @@ WIN_COMBINATIONS.find do |win_combination| # find instead of each??
     #puts "#{position}"
 
   #if position == "X"
+  #if position.each == "X"
     if position_1 == "X" && position_2 == "X" && position_3 == "X"
     #if position_4 == "X" && position_5 == "X" && position_6 == "X"
     #if position.each == "X"
-      puts win_combination
-      #puts "#{win_combination}"
-      return win_combination # return the win_combination indexes that won.
+
     else
       return false
     end # end if...else statement
+
+    puts win_combination
+    #puts "#{win_combination}"
+    return win_combination # return the win_combination indexes that won.
+
   #end # end for-each-loop
   #end # end for-each-loop
   end # end for-each-loop... AKA WIN_COMBINATIONS.each do |win_combination|
