@@ -18,8 +18,8 @@ WIN_COMBINATIONS = [
 ]
 WIN = WIN_COMBINATIONS
 
-def won?(board)
-
+def won?(board) #this is completely ridiculous but the more abstract method
+                #has my head hurting. Need to come back later and do better.
 if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 		return false
 
@@ -103,6 +103,6 @@ return false                   # >_> otherwise it's not
 end
 
 def winner(board)
-victor = won?(board) ? board[won?(board)[0]] : nil
-return victor
+victor_krum = won?(board) ? board[won?(board)[0]] : nil
+return victor_krum
 end
