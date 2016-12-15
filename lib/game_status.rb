@@ -79,27 +79,27 @@ elsif board[2] == "X" && board[4] == "X" && board[6] == "X"
 end
 
 def full?(board)
-	if board.include?(" ")       #if the board has any empty spaces, it's not full
-		return false
-	end
-	return true
+  if board.include?(" ")      #if the board has any empty spaces, it's not full
+     return false
+end
+     return true
 end
 
 
 
 def draw?(board)
-	if full?(board) && !won?(board)  # if board’s full and no one’s won
-		return true 	             # it’s a draw
-	else
-		return false
+   if full?(board) && !won?(board)  # if board’s full and no one’s won
+	return true 	            # it’s a draw
+   else
+	return false
 end
 end
 
 def over?(board)
-	if full?(board)              #if the board's full
-		return true                #the game's over
-	end
-return false                   # >_> otherwise it's not
+  if full?(board)        #if the board's full
+    return true          #the game's over
+end
+return false             # >_> otherwise it's not
 end
 
 def winner(board)
