@@ -86,7 +86,6 @@ end
 end
 
 
-
 def draw?(board)
    if full?(board) && !won?(board)  # if board’s full and no one’s won
 	return true 	            # it’s a draw
