@@ -40,10 +40,8 @@ WIN_COMBINATIONS.find do |win_combination| # find instead of each??
 end # end method
 
 
-#############
-############
-############
-def full?(board)  ###### this method works, but this can be written more clearly... i'm not totally sure why it works <<<----
+
+def full?(board)  ###### this method works, but this can be written more clearly <<<----
   board.all? do |positions|
     #puts "The #{board.length} position is #{positions}"
 
@@ -58,10 +56,11 @@ def full?(board)  ###### this method works, but this can be written more clearly
     end # end if...else statement
   end # end for each loop
 end # end full? method
-#############
-############
-############
 
+#####another way to do it, much simpler... this is how a Learn.co instructor said it could be done:
+# def full?(board)
+#   board.all?{|token| token == "X" || token == "O"}
+# end
 
 
 
@@ -70,7 +69,7 @@ def draw?(board)
     puts "The game is a draw. No one wins."
     true # it is a draw
   elsif !won?(board) && !full?(board) # if not won and board is not full
-    puts "The board is not full yet, so it is can't be a draw."
+    puts "The board is not full yet, so it can't be a draw."
     false # it is NOT a draw
    end # end if statement
 end # end method
@@ -91,42 +90,67 @@ end # end method
 
 
 
-def winner(board) # same as won?(board) method #### <<<<-------- better way to do this???
-WIN_COMBINATIONS.find do |win_combination| # find instead of each??
-  # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
-  # grab each index from the win_combination that composes a win.
+# def winner(board)
+#   if won?(board) == true
+#     #&& (position_1 == "X")
+#     puts "X is the winner!"
+#     return "X"
+#     true
+#   end # end if statement
+# end #end method
 
-  win_index_1 = win_combination[0]
-  win_index_2 = win_combination[1]
-  win_index_3 = win_combination[2]
 
-  position_1 = board[win_index_1] # load the value of the board at win_index_1
-  position_2 = board[win_index_2] # load the value of the board at win_index_2
-  position_3 = board[win_index_3] # load the value of the board at win_index_3
+##another way to do winner(board), by copying won?(board):::
+#def winner(board) # same as won?(board) method #### <<<<-------- better way to do this???
 
-    if (position_1 == "X" && position_2 == "X" && position_3 == "X")
-      puts win_combination # output win_combination so i can see what the hell is happening
+def winner(board)
+  if won?board
+    if board[won?(board)[0]] == "X"
       puts "X is the winner!"
-      return "X" # it is a string, so it's in quotes
-      #true # not 'return true', just 'true' -- find method looks for what evaluates to true and returns the element that caused the true evaluation
-    elsif (position_1 == "O" && position_2 == "O" && position_3 == "O")
-      puts win_combination # output win_combination so i can see what the hell is happening
+      return "X"
+    elsif board[won?(board)[0]] == "O"
       puts "O is the winner!"
-      return "O" # it is a string, so it's in quotes
-      #true # not 'return true', just 'true' -- find method looks for what evaluates to true and returns the element that caused the true evaluation
-    else
-      false # not 'return false', just 'false' -- see above note for 'true'
-    end # end if...else statement
-  end # end for-each-loop... AKA WIN_COMBINATIONS.each do |win_combination|
+      return "O"
+    end # end if..else statement
+  else !won?(board)
+    nil ###this nil is returned outside the if..elsif statement, which is inside the if won?board statement
+  end # end if won?board statement
 end # end method
 
-
-
-# def winner(board) # same as won?(board) method #### <<<<-------- better way to do this???
+####### super small version::::::::
+# def winner(board)
 #   if won?(board)
-#     if (position_1 == "X")
-#     puts "X is the winner!"
-#     return X
-#   end # end if statement
-#   end # end if statement
+#     puts "#{board[won?(board)[0]]} is the winner"
+#     return board[won?(board)[0]]
+#   end
+# end
+
+# ##another way to do winner(board), by copying won?(board):::
+# def winner(board) # same as won?(board) method #### <<<<-------- better way to do this???
+# WIN_COMBINATIONS.find do |win_combination| # find instead of each??
+#   # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
+#   # grab each index from the win_combination that composes a win.
+#
+#   win_index_1 = win_combination[0]
+#   win_index_2 = win_combination[1]
+#   win_index_3 = win_combination[2]
+#
+#   position_1 = board[win_index_1] # load the value of the board at win_index_1
+#   position_2 = board[win_index_2] # load the value of the board at win_index_2
+#   position_3 = board[win_index_3] # load the value of the board at win_index_3
+#
+#     if (position_1 == "X" && position_2 == "X" && position_3 == "X")
+#       puts win_combination # output win_combination so i can see what the hell is happening
+#       puts "X is the winner!"
+#       return "X" # it is a string, so it's in quotes
+#       #true # not 'return true', just 'true' -- find method looks for what evaluates to true and returns the element that caused the true evaluation
+#     elsif (position_1 == "O" && position_2 == "O" && position_3 == "O")
+#       puts win_combination # output win_combination so i can see what the hell is happening
+#       puts "O is the winner!"
+#       return "O" # it is a string, so it's in quotes
+#       #true # not 'return true', just 'true' -- find method looks for what evaluates to true and returns the element that caused the true evaluation
+#     else
+#       false # not 'return false', just 'false' -- see above note for 'true'
+#     end # end if...else statement
+#   end # end for-each-loop... AKA WIN_COMBINATIONS.each do |win_combination|
 # end # end method
