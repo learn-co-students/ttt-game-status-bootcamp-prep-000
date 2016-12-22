@@ -10,25 +10,23 @@ WIN_COMBINATIONS = [
   [6,7,8],
   [0,3,6],
   [1,4,7],
-  [6,7,8],
+  [2,5,8],
   [0,4,8],
-  [2.4,6]
+  [2,4,6]
 ]
 
 def won?(board)
   if board.all?{|v| v == " "}
     return false
   end
-  WIN_COMBINATIONS.each do | combo |
-    combo.each do | c |
-      v1 = c[0]
-      v2 = c[1]
-      v3 = c[2]
-      if v3 == "" || v3 == " " || v3 == nil
-        false
-      elsif v1 == v2 && v2 == v3
-        return combo
-      end
+  WIN_COMBINATIONS.each do | winning_combo_indicies |
+    winning_index_one = winning_combo_indicies[0]
+    winning_index_two = winning_combo_indicies[1]
+    winning_index_three = winning_combo_indicies[2]
+    if board[winning_index_three] == "" || board[winning_index_three] == " " || board[winning_index_three] == nil
+      false
+    elsif board[winning_index_one] == board[winning_index_two] && board[winning_index_two] == board[winning_index_three]
+      return winning_combo_indicies
     end
   end
   false
@@ -40,7 +38,7 @@ end
 
 def draw?(board)
   if full?(board)
-    if (won?(board))
+    if won?(board)
       false
     else
       true
