@@ -16,6 +16,9 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
+  if board.all?{|v| v == " "}
+    return false
+  end
   WIN_COMBINATIONS.each do | combo |
     combo.each do | c |
       v1 = c[0]
