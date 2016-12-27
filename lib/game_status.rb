@@ -15,11 +15,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  if empty?(board)
-    return false
-  elsif full?(board)
-    return false
-  elsif
+  if
   WIN_COMBINATIONS.each do |win_combination|
     position_1 = win_combination[0]
     position_2 = win_combination[1]
@@ -52,6 +48,22 @@ def empty?(board)
 def draw?(board)
   full?(board) && !won?(board)
 end
+
+def over?(board)
+  full?(board) || won?(board) || draw?(board)
+end
+
+def winner(board)
+  if !won?(board)
+    return nil
+  else
+    won?(board).each do |index|
+      return board[index]
+    end
+  end
+end
+
+
 
 
 
