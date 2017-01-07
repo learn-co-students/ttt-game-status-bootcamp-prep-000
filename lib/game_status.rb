@@ -50,13 +50,11 @@ end
 
 def over?(board)
     #should be over if board is full, is a draw, and/or has a winner.
-    full?(board) || draw?(board) || won?(board)
+    full?(board) || won?(board)
 end
 
 def winner(board)
-    if !won?(board) 
-        return nil
-    elsif won?(board)
+    if won?(board)
         winning_player=won?(board).first
         return winning_player=board[winning_player]      
     end
