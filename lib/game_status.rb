@@ -61,18 +61,10 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board)
-    #call won for the winning combination
-    winning_combo = won?(board)
+  #call won for the winning combination
+  if winning_combo = won?(board)
     #match winning combo against the board
-    winner_position = winning_combo[0]
-    #if includes X return X, else return O
-    if board[winner_position] == "X"
-      return "X"
-    else
-      return "O"
-    end
-  else
-    return nil
+    #winner = winning_combo[0]
+    board[winning_combo[0]]
   end
 end
