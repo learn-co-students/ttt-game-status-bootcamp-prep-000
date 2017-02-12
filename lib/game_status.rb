@@ -45,11 +45,11 @@ end
 
 def draw?(board)
   #returns true if the board has not been won and is full
-  if !won?(board) && full?(board)
+  if !won?(board) || full?(board)
     true
   #returns false if the board is not won and the board is not full
-  elsif !won?(board) && !full?(board)
-    false
+  #elsif !won?(board) && !full?(board)
+    #false
   #returns false if the board is won
   else
     false
@@ -63,7 +63,7 @@ def over?(board)
   end
 end
 
-def winner(board)  
+def winner(board)
   if won?(board)
     #call won for the winning combination
     winning_combo = won?(board)
