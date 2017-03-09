@@ -21,43 +21,29 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  for win_combination in WIN_COMBINATIONS do
-    board_win_combinations = [board[win_combination[0]], board[win_combination[1]], board[win_combination[2]]]
-    if (board_win_combinations.all?{|p| p == "X"}) || (board_win_combinations.all?{|p| p == "O"})
-      return win_combination
-    end
+  WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+    board[combo[1]] == board[combo[2]] &&
+    position_taken?(board, combo[0])
   end
-  return false
 end
 
 def full?(board)
-  tokens = ["X", "O"]
-  board.all?{|p| tokens.include?(p)}
+  board.all?{|token| ["X", "O"].include?(token)}
 end
 
 def draw?(board)
-  if !won?(board) && full?(board)
-    return true
-  else
-    return false
-  end
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  if won?(board) || full?(board) || draw?(board)
-    return true
-  else
-    return false
-  end
+ won?(board) || draw?(board)
 end
 
 def winner(board)
-  win_combination = won?(board)
-  if win_combination
-    return board[win_combination[0]]
-  else
-    return nil
-  end 
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
 end
 
 =begin
@@ -72,6 +58,16 @@ def won?(board)
     board_value_3 = board[win_index_3]
 
     if (board_value_1 == "X" && board_value_2 == "X" && board_value_3 == "X") || (board_value_1 == "O" && board_value_2 == "O" && board_value_3 == "O")
+      return win_combination
+    end
+  end
+  return false
+end
+
+def won?(board)
+  for win_combination in WIN_COMBINATIONS do
+    board_win_combinations = [board[win_combination[0]], board[win_combination[1]], board[win_combination[2]]]
+    if (board_win_combinations.all?{|p| p == "X"}) || (board_win_combinations.all?{|p| p == "O"})
       return win_combination
     end
   end
