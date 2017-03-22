@@ -80,9 +80,9 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board)
-    board[won?(board)[0]]
-  else
-    nil
-  end
+  # if
+    won?(board) ? board[won?(board)[0]] : nil
+  # else
+  #   nil
+  # end
 end
