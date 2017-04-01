@@ -137,7 +137,7 @@ describe "./lib/game_status.rb" do
       expect(over?(board)).to be_falsey
     end
   end
-
+#PEnDING FURTHER SOLUTION 
 #  describe '#winner' do
 #    it 'return X when X won' do
 #      board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
