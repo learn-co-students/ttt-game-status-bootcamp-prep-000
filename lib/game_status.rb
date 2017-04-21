@@ -25,9 +25,7 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? do |move|
-    move != " "
-  end
+  board.all?{ |move| move != " "}
 end
 
 def draw?(board)
@@ -41,15 +39,11 @@ def draw?(board)
 end
 
 def over?(board)
-  if won?(board) || draw?(board) || full?(board)
-    true
-  else
-    false
-  end
+ won?(board) || draw?(board) || full?(board)
 end
 
 def winner(board)
-  
+
   if won?(board)
     winning_combo = won?(board)
     if board[winning_combo[0]] == "X"
