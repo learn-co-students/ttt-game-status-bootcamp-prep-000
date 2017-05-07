@@ -23,14 +23,13 @@ def won?(board)
     position_1 = board[win_index_1]
     position_2 = board[win_index_2]
     position_3 = board[win_index_3]
-    if position_1 = "X" && position_2 == "X" && position_3 == "X"
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
       return winning
-    elsif position_1 = "O" && position_2 == "O" && position_3 == "O"
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
       return winning
-    else
-      false
 end
 end
+return false
 end
 
 def full?(board)
@@ -42,7 +41,8 @@ end
 def draw?(board)
   if full?(board) == true && won?(board) == false
     return true
-  else return false
+  else
+    return false
   end
 end
 
