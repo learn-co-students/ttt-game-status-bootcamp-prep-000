@@ -47,11 +47,7 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board)
-    WIN_COMBINATIONS.detect do |combo|
-      if board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]
-        return board[combo[0]]
-      end
-    end
+  if winning_combo = won?(board)
+    board[winning_combo.first]
   end
 end
