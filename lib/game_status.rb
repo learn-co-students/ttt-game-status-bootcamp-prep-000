@@ -17,7 +17,7 @@ WIN_COMBINATIONS = [
 
 def won?(board)
 winner = []
-empty_board = board.all? {|x| x == " "}
+empty_board = board.all? { |x| x == " "}
 WIN_COMBINATIONS.each do |sub_array|
     if empty_board
       return false
@@ -25,7 +25,7 @@ WIN_COMBINATIONS.each do |sub_array|
       winner = sub_array
     end
   end
-  winner == [] ? false: winner
+  winner == [] ? false : winner
 end
 
 def full?(board)
@@ -38,4 +38,9 @@ end
 
 def over?(board)
   draw?(board) || won?(board) ? true : false
+end
+
+def winner(board)
+  winning_board = won?(board)
+  winning_board ? board[winning_board[0]] : nil
 end
