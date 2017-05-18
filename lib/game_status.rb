@@ -22,6 +22,8 @@ WIN_COMBINATIONS.each do |sub_array|
        winner = sub_array
   elsif sub_array.all? { |value| board[value] == "O" }
     winner = sub_array
+  else
+    false
     end
   end
   winner
