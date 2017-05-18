@@ -18,15 +18,11 @@ WIN_COMBINATIONS = [
 def won?(board)
 winner = []
 WIN_COMBINATIONS.each do |sub_array|
-  if sub_array.all? { |value| board[value] =="X" }
+  if sub_array.all? { |value| board[value] =="X" } || sub_array.all? { |value| board[value] == "O" }
        winner = sub_array
-  elsif sub_array.all? { |value| board[value] == "O" }
-    winner = sub_array
-  else
-    false
-    end
-  end
-  winner
+     end
+   end
+   winner
 end
 
 def full?(board)
