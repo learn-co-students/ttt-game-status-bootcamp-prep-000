@@ -20,6 +20,8 @@ winner = []
 WIN_COMBINATIONS.each do |sub_array|
   if sub_array.all? { |value| board[value] =="X" } || sub_array.all? { |value| board[value] == "O" }
        winner = sub_array
+  else
+    return nil?
      end
    end
    winner
