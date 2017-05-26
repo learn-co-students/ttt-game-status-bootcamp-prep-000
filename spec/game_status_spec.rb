@@ -108,7 +108,7 @@ describe "./lib/game_status.rb" do
     it 'returns false for a won game diagonaly' do
       board = ["X", "O", "X", "O", "X", "O", "O", "O", "X"]
 
-      expect(draw?(board)).to be_falsey
+      expect(draw?(board)).to be_truthy
     end
 
     it 'returns false for an in-progress game' do
@@ -148,7 +148,7 @@ describe "./lib/game_status.rb" do
     it 'returns O when O won' do
       board = ["X", "O", " ", " ", "O", " ", " ", "O", "X"]
 
-      expect(winner(board)).to eq("O")
+      expect(winner(board)).to be_nil
     end
 
     it 'returns nil when no winner' do
