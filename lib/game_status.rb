@@ -14,10 +14,10 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
-def won(board)
-  WIN_COMBINATIONS.each do |winning_combinations|
-  if board[winning_combinations[0]] = board[winning_combinations[1]] = board[winning_combinations[2]]
-    return winning_combinations
+def won?(board)
+  WIN_COMBINATIONS.each do |winning_combination|
+  if board[winning_combination[0]] = board[winning_combination[1]] = board[winning_combination[2]]
+    return winning_combination
   else
     return false
   end
