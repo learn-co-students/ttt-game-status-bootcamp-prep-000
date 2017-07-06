@@ -64,8 +64,3 @@ def winner(board)
     board[won_result[0]]
   end
 end
-
-# board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
-# won_result = won?(board)
-# p winner?(board) == "X"
-# p board[won_result[0]] == "X"
