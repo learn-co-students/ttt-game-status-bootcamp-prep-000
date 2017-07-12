@@ -21,21 +21,28 @@ WIN_COMBINATIONS = [
 
 
 def won?(board)
-  #board = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
-  test = []
-  counter = 0
-  while (counter < 8)
 
-    test = [WIN_COMBINATIONS[counter][0], WIN_COMBINATIONS[counter][1], WIN_COMBINATIONS[counter][2]]
-
-    if ((board[test[0]] === "X" && board[test[1]] === "X" && board[test[2]] === "X") || (board[test[0]] === "O" && board[test[1]] === "O" && board[test[2]] === "O"))
-
-      return test
+    WIN_COMBINATIONS.detect do |combo|
+      board[combo[0]] !=" " && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]
     end
-      counter += 1
-  end
-  nil
+
 end
+
+  #THIS WORKS.  UN-COMMENT IF OTHER CODE DOESN"T PASS
+  # test = []
+  # counter = 0
+  # while (counter < 8)
+
+
+#    test = [WIN_COMBINATIONS[counter][0], WIN_COMBINATIONS[counter][1], WIN_COMBINATIONS[counter][2]]
+# => if ((board[test[0]] === "X" && board[test[1]] === "X" && board[test[2]] === "X") || (board[test[0]] === "O" && board[test[1]] === "O" && board[test[2]] === "O"))
+#
+#       return test
+#     end
+#       counter += 1
+#   end
+#   nil
+# end
 
 def full?(board)
   !board.any? { |e| e === ' '  }
