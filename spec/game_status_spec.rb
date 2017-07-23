@@ -117,7 +117,7 @@ describe "./lib/game_status.rb" do
       expect(draw?(board)).to be_falsey
     end
   end
-
+  #
   describe '#over?' do
     it 'returns true for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
