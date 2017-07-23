@@ -29,4 +29,52 @@ def won?(board)
   return false
 end
 
+
+def full?(board)
+  board.each do | position |
+    if !(position == " ")
+    else
+      return false
+    end
+  end
+  return true
+end
+
+
+def draw?(board)
+  if (won?(board) == false) && full?(board)
+    return true
+  else
+    return false
+  end
+  # return true if board has not been won and is full
+  # return false if board is not won and board is not full
+  # return false if the board is won
+end
+
+def over?(board)
+  if draw?(board)
+    true
+  elsif won?(board)
+    true
+  else
+    return false
+  end
+end
+
+def winner(board)
+  if won?(board) == false
+      return nil
+  else
+    winning_combo = won?(board)
+    first_position = winning_combo[0]
+    if board[first_position] == "X"
+      return "X"
+    else
+      return "O"
+    end
+  end
+end
+
+
 WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
