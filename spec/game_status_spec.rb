@@ -1,96 +1,96 @@
 require_relative '../lib/game_status.rb'
 
 describe "./lib/game_status.rb" do
-  describe 'WIN_COMBINATIONS' do
-    it 'defines a constant WIN_COMBINATIONS with arrays for each win combination' do
-      expect(WIN_COMBINATIONS.size).to eq(8)
-
-      expect(WIN_COMBINATIONS).to include_array([0,1,2])
-      expect(WIN_COMBINATIONS).to include_array([3,4,5])
-      expect(WIN_COMBINATIONS).to include_array([6,7,8])
-      expect(WIN_COMBINATIONS).to include_array([0,3,6])
-      expect(WIN_COMBINATIONS).to include_array([1,4,7])
-      expect(WIN_COMBINATIONS).to include_array([2,5,8])
-      expect(WIN_COMBINATIONS).to include_array([0,4,8])
-      expect(WIN_COMBINATIONS).to include_array([6,4,2])
-    end
-  end
-
-  describe "#won?" do
-    it 'returns false for an empty board' do
-      board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
-      expect(won?(board)).to be_falsey
-    end
-
-    it 'returns false for a draw' do
-      board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
-      expect(won?(board)).to be_falsey
-    end
-
-    it 'returns an array of matching indexes for a top row win' do
-      board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
-
-      expect(won?(board)).to match_array([0,1,2])
-    end
-
-    it 'returns an array of matching indexes for a middle row win' do
-      board = [" ", " ", " ", "X", "X", "X", " ", " ", " "]
-
-      expect(won?(board)).to match_array([3,4,5])
-    end
-
-    it 'returns an array of matching indexes for a bottom row win' do
-      board = [" ", " ", " ", " ", " ", " ", "X", "X", "X"]
-
-      expect(won?(board)).to match_array([6,7,8])
-    end
-
-    it 'returns an array of matching indexes for a left column win' do
-      board = ["O", " ", " ", "O", " ", " ", "O", " ", " "]
-
-      expect(won?(board)).to match_array([0,3,6])
-    end
-
-    it 'returns an array of matching indexes for a middle column win' do
-      board = [" ", "O", " ", " ", "O", " ", " ", "O", " "]
-
-      expect(won?(board)).to match_array([1,4,7])
-    end
-
-    it 'returns an array of matching indexes for a right column win' do
-      board = [" ", " ", "O", " ", " ", "O", " ", " ", "O"]
-
-      expect(won?(board)).to match_array([2,5,8])
-    end
-
-    it 'returns an array of matching indexes for a left diagonal win' do
-      board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
-
-      expect(won?(board)).to match_array([0,4,8])
-    end
-
-    it 'returns an array of matching indexes for a right diagonal win' do
-      board = [" ", " ", "O", " ", "O", " ", "O", " ", " "]
-
-      expect(won?(board)).to match_array([2,4,6])
-    end
-  end
-
-  # describe '#full?' do
-  #   it 'returns true for a draw' do
-  #     board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+  # describe 'WIN_COMBINATIONS' do
+  #   it 'defines a constant WIN_COMBINATIONS with arrays for each win combination' do
+  #     expect(WIN_COMBINATIONS.size).to eq(8)
   #
-  #     expect(full?(board)).to be_truthy
-  #   end
-  #
-  #   it 'returns false for an in-progress game' do
-  #     board = ["X", " ", "X", " ", "X", " ", "O", "O", " "]
-  #
-  #     expect(full?(board)).to be_falsey
+  #     expect(WIN_COMBINATIONS).to include_array([0,1,2])
+  #     expect(WIN_COMBINATIONS).to include_array([3,4,5])
+  #     expect(WIN_COMBINATIONS).to include_array([6,7,8])
+  #     expect(WIN_COMBINATIONS).to include_array([0,3,6])
+  #     expect(WIN_COMBINATIONS).to include_array([1,4,7])
+  #     expect(WIN_COMBINATIONS).to include_array([2,5,8])
+  #     expect(WIN_COMBINATIONS).to include_array([0,4,8])
+  #     expect(WIN_COMBINATIONS).to include_array([6,4,2])
   #   end
   # end
+  #
+  # describe "#won?" do
+  #   it 'returns false for an empty board' do
+  #     board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+  #
+  #     expect(won?(board)).to be_falsey
+  #   end
+  #
+  #   it 'returns false for a draw' do
+  #     board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+  #
+  #     expect(won?(board)).to be_falsey
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a top row win' do
+  #     board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
+  #
+  #     expect(won?(board)).to match_array([0,1,2])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a middle row win' do
+  #     board = [" ", " ", " ", "X", "X", "X", " ", " ", " "]
+  #
+  #     expect(won?(board)).to match_array([3,4,5])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a bottom row win' do
+  #     board = [" ", " ", " ", " ", " ", " ", "X", "X", "X"]
+  #
+  #     expect(won?(board)).to match_array([6,7,8])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a left column win' do
+  #     board = ["O", " ", " ", "O", " ", " ", "O", " ", " "]
+  #
+  #     expect(won?(board)).to match_array([0,3,6])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a middle column win' do
+  #     board = [" ", "O", " ", " ", "O", " ", " ", "O", " "]
+  #
+  #     expect(won?(board)).to match_array([1,4,7])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a right column win' do
+  #     board = [" ", " ", "O", " ", " ", "O", " ", " ", "O"]
+  #
+  #     expect(won?(board)).to match_array([2,5,8])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a left diagonal win' do
+  #     board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
+  #
+  #     expect(won?(board)).to match_array([0,4,8])
+  #   end
+  #
+  #   it 'returns an array of matching indexes for a right diagonal win' do
+  #     board = [" ", " ", "O", " ", "O", " ", "O", " ", " "]
+  #
+  #     expect(won?(board)).to match_array([2,4,6])
+  #   end
+  # end
+
+  describe '#full?' do
+    it 'returns true for a draw' do
+      board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+
+      expect(full?(board)).to be_truthy
+    end
+
+    it 'returns false for an in-progress game' do
+      board = ["X", " ", "X", " ", "X", " ", "O", "O", " "]
+
+      expect(full?(board)).to be_falsey
+    end
+  end
   #
   # describe '#draw?' do
   #   it 'returns true for a draw' do
