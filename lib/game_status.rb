@@ -15,14 +15,10 @@ WIN_COMBINATIONS = [
   [2,4,6]   #Diaginal top right to bottom left
 ]
 def won?(board)
-  #WIN_COMBINATIONS.detect do |combo|
-  #  winning_combo = combo.all? { |e| board[e.to_i].downcase == "x" }
-  #  winning_combo = combo.all? { |e| board[e.to_i].downcase == "o" }
-  #end
   WIN_COMBINATIONS.each do |combo|
-    if board[combo[0]] == board[combo[1]] && board[combo[0]] == board[combo[2]] && board[combo[0]] == "X"
+    if combo.all? { |i| board[i].downcase == "x"}
       return combo
-    elsif board[combo[0]] == board[combo[1]] && board[combo[0]] == board[combo[2]] && board[combo[0]] == "O"
+    elsif combo.all? { |i| board[i].downcase == "o"}
       return combo
     end
   end
