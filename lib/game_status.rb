@@ -16,13 +16,11 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.each do |combo|
-    next unless position_taken?(board, combo.first)
-    first_token = board[combo.first]
-    return combo if combo.drop(1).all? { |idx| board[idx] == first_token }
+  WIN_COMBINATIONS.detect do |combo|
+    position_taken?(board, combo[0]) &&
+      board[combo[0]] == board[combo[1]] &&
+      board[combo[1]] == board[combo[2]]
   end
-
-  nil
 end
 
 def full?(board)
@@ -39,8 +37,5 @@ end
 
 def winner(board)
   winning_combo = won?(board)
-  return unless winning_combo
-
-  winning_token = board[winning_combo.first]
-  winning_token
+  board[winning_combo.first] if winning_combo
 end
