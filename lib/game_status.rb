@@ -26,9 +26,9 @@ def won?(board)
     end
   end
   if winner_winner == true
-    return winning_array
+    winning_array
   else
-    return false
+    false
   end
 end
 
@@ -40,9 +40,9 @@ end
 
 def draw?(board)
   if full?(board) == true && won?(board) == false
-    return true
+    true
   else
-    return false
+    false
   end
 end
 
@@ -51,17 +51,17 @@ def over?(board)
     winning_combination == won?(board)
   end
 if game_won == true || draw?(board) == true
-    return true
+    true
   else
-    return false
+    false
   end
 end
 
 def winner(board)
   winning_combination = won?(board)
   if winning_combination == false
-    return nil
+    nil
   else
-    return board[winning_combination[0]]
+    board[winning_combination[0]]
   end
 end
