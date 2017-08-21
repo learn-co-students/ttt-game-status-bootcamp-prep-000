@@ -1,0 +1,134 @@
+# Helper Method
+def position_taken?(board, index)
+  !(board[index].nil? || board[index] == " ")
+end
+
+# Define your WIN_COMBINATIONS constant
+WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+
+def won?(board)
+  win = true
+  #check for empty board
+  empty = board.none? do |space|
+    position_taken?(board, space.to_i)
+  end
+  #return false for empty board
+  if empty == true
+    !empty
+  elsif empty != true #=> if board not empty check for win
+    WIN_COMBINATIONS.each do |win_combination| #=> win_combination is a 3 element array of indexes that compose a win, [0,1,2]
+    #place token from each board space that corresponds to win into a variable
+      position =[]
+      position[0] = board[win_combination[0]]
+      position[1] = board[win_combination[1]]
+      position[2] = board[win_combination[2]]
+      #check for win
+      position.detect{(position[0] == "X" && position[1] == "X" && position[2] == "X") || (position[0] == "O" && position[1] == "O" && position[2] == "O")}
+      return
+      # if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+      #   win = true
+      #   return win_combination # return the win_combination indexes that won.
+      # else
+      #   win = false
+      # end
+    end
+  draw = board.all? do |space|
+    position_taken?(board, space.to_i)
+  end
+  if draw == true && win == false
+    return false
+  end
+  end
+end
+
+
+
+
+----------
+
+# Helper Method
+def position_taken?(board, index)
+  !(board[index].nil? || board[index] == " ")
+end
+
+# Define your WIN_COMBINATIONS constant
+WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+
+def won?(board)
+  win = true
+  #check for empty board
+  empty = board.none? do |space|
+    position_taken?(board, space.to_i)
+  end
+  #return false for empty board
+  if empty == true
+    !empty
+  elsif empty != true #=> if board not empty check for win
+    WIN_COMBINATIONS.each do |win_combination| #=> win_combination is a 3 element array of indexes that compose a win, [0,1,2]
+    #place token from each board space that corresponds to win into a variable
+      position_1 = board[win_combination[0]]
+      position_2 = board[win_combination[1]]
+      position_3 = board[win_combination[2]]
+      #check for win
+      if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+        win = true
+        return win_combination # return the win_combination indexes that won.
+      else
+          win = false
+      end
+    end
+  draw = board.all? do |space|
+    position_taken?(board, space.to_i)
+  end
+  if draw == true && win == false
+    return false
+  end
+  end
+end
+
+
+-------------
+
+
+#####################################14 failures
+
+# Helper Method
+def position_taken?(board, index)
+  !(board[index].nil? || board[index] == " ")
+end
+
+# Define your WIN_COMBINATIONS constant
+WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+
+def won?(board)
+  win = false
+  # check for empty board
+  empty = board.none? do |space|
+    position_taken?(board, space.to_i)
+  end
+  if empty != true #=> if board not empty check for win
+    WIN_COMBINATIONS.each do |win_combination| #=> win_combination is a 3 element array of indexes that compose a win, [0,1,2]
+    #place token from each board space that corresponds to win into an array
+      position_1 = board[win_combination[0]]
+      position_2 = board[win_combination[1]]
+      position_3 = board[win_combination[2]]
+      if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+        win = true
+        return win_combination # return the win_combination indexes that won.
+      else
+        win = false
+      end
+    end
+  elsif empty == true #=>return false for empty board
+    return false
+  # else
+  #   return false
+  end
+  draw = board.all? do |space|
+    position_taken?(board, space.to_i)
+  end
+  if draw == true && win == false
+    return false
+  end
+
+end
