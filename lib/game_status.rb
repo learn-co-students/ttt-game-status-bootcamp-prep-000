@@ -26,3 +26,23 @@ def won?(board)
     position_taken?(board, combo[0])
   end
 end
+
+def full?(board)
+  board.all? do |pos|
+    pos == "X" || pos == "O"
+  end
+end
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || full?(board)
+end
+
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end
