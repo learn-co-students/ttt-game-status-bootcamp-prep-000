@@ -55,12 +55,3 @@ def winner(board)
     end
   end
 end
-
-=begin
-board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-if won?(board) == nil
-  puts "Nil"
-else
-  puts won?(board)
-end
-=end
