@@ -43,10 +43,9 @@ def over?(board)
 end
 
 def winner(board)
-  if WIN_COMBINATIONS[0] == "X" && WIN_COMBINATIONS[1] == "X" && WIN_COMBINATIONS[2] == "X"
-    return "X"
-  elsif
-    WIN_COMBINATIONS[0] == "O" && WIN_COMBINATIONS[1] == "O" && WIN_COMBINATIONS[2] == "O"
-    return "O"
-  end
+if won?(board)
+  board[won?(board).first]
+else
+  return nil
+end
 end
