@@ -26,3 +26,19 @@ def won?(board)
     end
   end
 end
+
+def full?(board)
+  board.all?{|i| i == "X" || i == "O"} #=> true, else false
+end
+
+def draw?(board)
+  full?(board) && !won?(board) ? true : false
+end
+
+def over?(board)
+  won?(board) || full?(board) || draw?(board) ? true : false
+end
+
+def winner(board)
+  won?(board) ? board[won?(board)[0]] : nil
+end
