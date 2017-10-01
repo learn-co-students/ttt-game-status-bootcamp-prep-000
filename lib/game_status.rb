@@ -1,5 +1,7 @@
 #board = ["X", "", "", "X", "", "", "X", "", ""]
-board = ["X", " ", " ", "X", " ", " ", "X", " ", " "]
+#board = ["X", " ", " ", "X", " ", " ", "X", " ", " "]
+#board = ["X", "X", "O", "O", "X", "X", "X", "O", "O"]
+#board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
 
 # Helper Method
 def position_taken?(board, index)
@@ -19,7 +21,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-    if board.all? { |spot| spot == ""} == false
+    if board.all? { |spot| spot.strip == ""} == false
        false
     end
 
@@ -55,7 +57,7 @@ def won?(board)
 end
 
 def full?(board)
-   if board.all? { |spot| spot != ""} == true
+   if board.all? { |spot| spot.strip != ""} == true
       true
    else
       false
@@ -81,7 +83,18 @@ def over?(board)
 end
 
 def winner(board)
+   if !won?(board) && full?(board)
+      return false
+   end
 
+   if won?(board)
+      win = won?(board)
+      if board[win[0]] == "X"
+         "X"
+      elsif board[win[0]] == "O"
+         "O"
+      end
+   end
 end
 
-puts full?(board)
+#puts winner(board)
