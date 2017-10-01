@@ -1,3 +1,6 @@
+#board = ["X", "", "", "X", "", "", "X", "", ""]
+board = ["X", " ", " ", "X", " ", " ", "X", " ", " "]
+
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -16,10 +19,10 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-    board.all? { |spot|
-        spot == ""
-        break
-    }
+    if board.all? { |spot| spot == ""} == false
+       false
+    end
+
     # define winning indexes
     win_index_1 = WIN_COMBINATIONS[0]
     win_index_2 = WIN_COMBINATIONS[1]
@@ -30,34 +33,55 @@ def won?(board)
     win_index_7 = WIN_COMBINATIONS[6]
     win_index_8 = WIN_COMBINATIONS[7]
 
-    position_1 = board[win_index_1]
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-    position_4 = board[win_index_4]
-    position_5 = board[win_index_5]
-    position_6 = board[win_index_6]
-    position_7 = board[win_index_7]
-    position_8 = board[win_index_8]
-
-    if position_1 == "X"
-        return WIN_COMBINATIONS
+    if (board[win_index_1[0]] == "X" && board[win_index_1[1]] == "X" && board[win_index_1[2]] == "X") || (board[win_index_1[0]] == "O" && board[win_index_1[1]] == "O" && board[win_index_1[2]] == "O")
+       return WIN_COMBINATIONS[0]
+    elsif (board[win_index_2[0]] == "X" && board[win_index_2[1]] == "X" && board[win_index_2[2]] == "X") || (board[win_index_2[0]] == "O" && board[win_index_2[1]] == "O" && board[win_index_2[2]] == "O")
+       return WIN_COMBINATIONS[1]
+    elsif (board[win_index_3[0]] == "X" && board[win_index_3[1]] == "X" && board[win_index_3[2]] == "X") || (board[win_index_3[0]] == "O" && board[win_index_3[1]] == "O" && board[win_index_3[2]] == "O")
+       return WIN_COMBINATIONS[2]
+    elsif (board[win_index_4[0]] == "X" && board[win_index_4[1]] == "X" && board[win_index_4[2]] == "X") || (board[win_index_4[0]] == "O" && board[win_index_4[1]] == "O" && board[win_index_4[2]] == "O")
+       return WIN_COMBINATIONS[3]
+    elsif (board[win_index_5[0]] == "X" && board[win_index_5[1]] == "X" && board[win_index_5[2]] == "X") || (board[win_index_5[0]] == "O" && board[win_index_5[1]] == "O" && board[win_index_5[2]] == "O")
+       return WIN_COMBINATIONS[4]
+    elsif (board[win_index_6[0]] == "X" && board[win_index_6[1]] == "X" && board[win_index_6[2]] == "X") || (board[win_index_6[0]] == "O" && board[win_index_6[1]] == "O" && board[win_index_6[2]] == "O")
+       return WIN_COMBINATIONS[5]
+    elsif (board[win_index_7[0]] == "X" && board[win_index_7[1]] == "X" && board[win_index_7[2]] == "X") || (board[win_index_7[0]] == "O" && board[win_index_7[1]] == "O" && board[win_index_7[2]] == "O")
+       return WIN_COMBINATIONS[6]
+    elsif (board[win_index_8[0]] == "X" && board[win_index_8[1]] == "X" && board[win_index_8[2]] == "X") || (board[win_index_8[0]] == "O" && board[win_index_8[1]] == "O" && board[win_index_8[2]] == "O")
+       return WIN_COMBINATIONS[7]
     else
-        false
+       false
     end
 end
 
 def full?(board)
-
+   if board.all? { |spot| spot != ""} == true
+      true
+   else
+      false
+   end
 end
 
 def draw?(board)
-
+   if full?(board) && !won?(board)
+      true
+   end
 end
 
 def over?(board)
-
+   if draw?(board)
+      true
+   elsif full?(board) && won?(board)
+      true
+   elsif !full?(board) && won?(board)
+      true
+   else
+      false
+   end
 end
 
 def winner(board)
 
 end
+
+puts full?(board)
