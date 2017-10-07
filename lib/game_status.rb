@@ -20,7 +20,13 @@ def won?(board)
       board[position] == "X"
     end ||
     combination.all? do |position|
-      board[position] == "O" 
+      board[position] == "O"
     end
+  end
+end
+
+def full?(board)
+  board.all? do |position|
+    position == "X" || position == "O"
   end
 end
