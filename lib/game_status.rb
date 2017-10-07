@@ -18,6 +18,9 @@ def won?(board)
   WIN_COMBINATIONS.detect do |combination|
     combination.all? do |position|
       board[position] == "X"
+    end ||
+    combination.all? do |position|
+      board[position] == "O" 
     end
   end
 end
