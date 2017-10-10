@@ -34,36 +34,19 @@ def won?(board)
   end
 
   def full?(board)
-      board.all? do |position|
-      position == "X" || position == "O"
-      end
+      board.all?{|position| position == "X" || position == "O"}
   end
 
   def draw? (board)
-    if full?(board) == true && won?(board) == false
-      return true
-    else return false
-    end
+    full?(board) && !won?(board)
   end
 
   def winner(board)
-    if won?board
-    winning_combo = won?(board)
-    return board[winning_combo[0]]
-  else
-    return nil
-  end
+      if winning_combo = won?(board)
+        board[winning_combo[0]]
+      end
   end
 
   def over?(board)
-      if won?(board)
-        return true
-      elsif draw?(board)
-        return true
-      elsif full?(board)
-        return true
-      else
-        return false
+     draw?(board) || full?(board) || won?(board)
       end
-
-  end
