@@ -33,11 +33,7 @@ def over?(board)
 end
 
 def winner(board)
-  if !won?(board)
-    return nil
-  elsif won?(board).all? { |spot| board[spot] == "X" }
-    return "X"
-  elsif won?(board).all? { |spot| board[spot] == "O" }
-    return "O"
+  if combo = won?(board)
+    board[combo.first]
   end
 end
