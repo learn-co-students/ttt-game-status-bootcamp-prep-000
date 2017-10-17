@@ -16,6 +16,9 @@ describe "./lib/game_status.rb" do
     end
   end
 
+
+
+
   describe "#won?" do
     it 'returns false for an empty board' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
@@ -78,6 +81,9 @@ describe "./lib/game_status.rb" do
     end
   end
 
+
+
+
   describe '#full?' do
     it 'returns true for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
@@ -91,6 +97,8 @@ describe "./lib/game_status.rb" do
       expect(full?(board)).to be_falsey
     end
   end
+
+
 
   describe '#draw?' do
     it 'returns true for a draw' do
@@ -118,6 +126,8 @@ describe "./lib/game_status.rb" do
     end
   end
 
+
+
   describe '#over?' do
     it 'returns true for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
@@ -143,6 +153,9 @@ describe "./lib/game_status.rb" do
       expect(over?(board)).to be_falsey
     end
   end
+
+
+
 
   describe '#winner' do
     it 'return X when X won' do
