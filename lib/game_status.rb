@@ -37,9 +37,8 @@ def won?(board)
 end
 
 def full?(board)
-  board.none? do |space|
-    if space == "  " || space == nil
-    end
+  board.all? do |space|
+    space == "X" || space == "O"
   end
 end
 
@@ -58,5 +57,10 @@ def over?(board)
 end
 
 def winner(board)
-
+  if won?(board) == false
+    return nil
+  else
+    winning = won?(board)
+    return board[winning[0]]
+  end
 end
