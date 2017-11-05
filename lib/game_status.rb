@@ -16,9 +16,6 @@ def won?(board)
   return nil
 end
 
-board1 = ["X", " ", " ", "X", "O", "O", "X", " ", " "]
-board2 = ["X", "X", "O", "X", "O", "O", "X", "O", "X"]
-
 def full?(board)
   !board.include?(" ")
 end
