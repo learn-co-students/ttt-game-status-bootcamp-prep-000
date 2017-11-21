@@ -6,25 +6,25 @@ end
 
 def won?(board)
   WIN_COMBINATIONS.each do |win|
-    position = []
+    positions = []
     counter = 0
     win.each do |index|
-      position[counter] = board[index]
+      positions[counter] = board[index]
       counter += 1
     end
-    # if position[0] == "X" && position[1] == "X" && position[2] == "X"
+    # if positions[0] == "X" && positions[1] == "X" && positions[2] == "X"
     #   return win
-    # elsif position[0] == "O" && position[1] == "O" && position[2] == "O"
+    # elsif positions[0] == "O" && positions[1] == "O" && positions[2] == "O"
     #   return win
     # else
     #   return false
     # end
-    if position.all? {|check| check == "X"}
+    if positions.all? {|position| position == "X"}
       return win
-    elsif position.all? {|check| check == "O"}
-      return win
-    else
-      return false
+    # elsif positions.all? {|position| position == "O"}
+    #   return win
+    # else
+    #   return false
     end
   end
 end
