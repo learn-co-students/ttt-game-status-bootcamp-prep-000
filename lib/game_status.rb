@@ -29,17 +29,29 @@ end
 
 
 def draw?(board)
-
+  if full?(board) && !won?(board)
+    return true
+  elsif !full?(board) && !won?(board)
+    return false
+  end
 end
 
 
 def over?(board)
-
+  # if won?(board) || full?(board) || over?(board)
+  #   return true
+  # else
+  #   return false
+  # end
 end
 
 
-def winner?(board)
-
+def winner(board)
+  if won?(board)
+    winCombo = won?(board)
+    index = winCombo[0]
+    return board[index]
+  end
 end
 
 
