@@ -6,27 +6,20 @@ end
 
 def won?(board)
   positions = []
-  WIN_COMBINATIONS.each do |win|
+  winner = []
+  WIN_COMBINATIONS.each do |winCombo| #iterate over each winning combination of the entire winning combinations array
     counter = 0
-    win.each do |index|
-      positions[counter] = board[index]
+    winCombo.each do |index| #iterate over each element of each winning combo
+      positions[counter] = board[index] #pushes the element of the current board at the index based off the winning combination element
       counter += 1
     end
-    # if positions[0] == "X" && positions[1] == "X" && positions[2] == "X"
-    #   return win
-    # elsif positions[0] == "O" && positions[1] == "O" && positions[2] == "O"
-    #   return win
-    # else
-    #   return false
-    # end
+    if positions.all? {|position| position == "X"} #if all the board elements in the winning combo indexes are X, it's a win!
+      return winCombo
+    elsif positions.all? {|position| position == "O"} #same above but for O
+      return winCombo
+    end
   end
-  if positions.all? {|position| position == "X"}
-    return win
-  elsif positions.all? {|position| position == "O"}
-    return win
-  else
-    return false
-  end
+  return false #returns false after the function iterates through each winning combination
 end
 
 
