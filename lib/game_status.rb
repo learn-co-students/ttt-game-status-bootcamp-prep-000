@@ -21,9 +21,24 @@ board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+
+
+
+
+
 def check_win_combination?(board, player, win_combo)
-  win_combo.all? do |position|
-    board[position] == player
+  # win_combo.all? do |position|
+  #   board[position] == player
+  win_index_1 = win_combo[0]
+  win_index_2 = win_combo[1]
+  win_index_3 = win_combo[2]
+
+  position_1 = board[win_index_1] # load value of board at win_index_1
+  position_2 = board[win_index_2]
+  position_3 = board[win_index_3]
+  
+  if position_1 == player && position_2 == player && position_3 == player
+    return win_combo
   end
 end
 
@@ -39,6 +54,12 @@ def won?(board)
     end
   end
 end
+
+
+
+
+
+
 
 # HELPER METHOD
 def position_taken?(board, index)
