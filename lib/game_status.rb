@@ -38,11 +38,7 @@ end
 
 def winner(board)
   if won?(board)
-    if (won?(board).all? do |position| board[position] == "X" end)
-      "X"
-    else
-      "O"
-    end
+    board[won?(board)[0]]
   else
     nil
   end
