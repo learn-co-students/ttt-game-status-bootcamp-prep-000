@@ -41,5 +41,5 @@ def winner board
   if !won? board
     return nil
   end
-  return board[won?(board)[0]]
+  return board[won?(board).first]
 end
