@@ -16,15 +16,48 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  winning_combo = [];
+  combination_moves = []
+  won = false
+
   WIN_COMBINATIONS.each do |combination|
+
     combination_moves = [board[combination[0]],
                          board[combination[1]],
                          board[combination[2]]]
-    won = combination_moves.all? do |character|
-      if character == "X" || character == |"O"|
-        winning_combo = combination
+
+    won = (combination_moves.all? do |character|
+        character == "X" end) ||
+        (combination_moves.all? do |character|
+        character == "O" end)
+
+    if won
+      return combination
     end
   end
-  if won {return winning_combo}
+
+  return false
+end
+
+def full?(board)
+  return board.all? do |space|
+    space != " " && space != nil
+  end
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  full?(board) || draw?(board) || won?(board)
+end
+
+def winner(board)
+  winning_combo = won?(board)
+
+  if winning_combo
+    return board[winning_combo[0]]
+  else
+    return nil
+  end
 end
