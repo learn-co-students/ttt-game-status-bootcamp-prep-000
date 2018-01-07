@@ -36,8 +36,12 @@ def over?(board)
 end
 
 def winner(board)
-  winner_combination = won?(board)
-  if winner_combination
-    board[winner_combination.first]
-  end
+  # Must be a winning board
+  # Must return X or O if a winning board
+  winning_combination = won?(board)
+  board[winning_combination.first] if winning_combination
 end
+
+#ask julian how to begin disecting what the question is really asking
+#What are the context clues I should be looking for?
+#How do I make sense of what exactly they are asking?
