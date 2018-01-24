@@ -37,9 +37,8 @@ def over?(board)
 end
 
 def winner(board)
-  trip = won?(board)
-  if trip
-    return board[trip[0]]
+  winning = won?(board)
+  if winning
+    board[winning[0]]
   end
-  nil
 end
