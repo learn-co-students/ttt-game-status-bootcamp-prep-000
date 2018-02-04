@@ -114,6 +114,7 @@ end
 def winner(board)
   if won?(board)
     test = won?(board)[0]
+    # board[test] == "X" ? "X" : "O"
     if board[test] == "X"
       return "X"
     elsif board[test] == "O"
