@@ -14,4 +14,33 @@ WIN_COMBINATIONS = [
   [2,5,8],
   [0,4,8],
   [2,4,6]
-  ]
+]
+
+#def won?(board) 
+#  if 
+#  WIN_COMBINATIONS.each do |win_combo_array|
+#    win_combo_array.each do |win_combo_element|
+#      win_index_1 = win_combo_element[0]
+#      win_index_2 = win_combo_element[1]
+#      win_index_3 = win_combo_element[2]
+#    
+#      position_1 = board[win_index_1]
+#      position_2 = board[win_index_2]
+#      position_3 = board[win_index_3]
+#    
+#      if position_1 == "X" && position_2 == "X" && position_3 == "X"
+#        win_combo_array
+#      else
+#        false
+#      end
+#    end
+#  end
+#end
+
+def won?(board)
+  WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+    board[combo[1]] == board[combo[2]] &&
+    position_taken?(board, combo[0])
+  end
+end
