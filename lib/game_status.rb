@@ -62,10 +62,10 @@ def winner(board)
     position = [board[win_combination[0]], board[win_combination[1]], board[win_combination[2]]]
 
     if position[0] == "X" && position[1] == "X" && position[2] == "X"
-      return "X" # return the win_combination indexes that won.
+      return "X" # return the winner.
     end
     if position[0] == "O" && position[1] == "O" && position[2] == "O"
-      return "O" # return the win_combinationo indexes that won.
+      return "O" # return the winner.
     end
   end
   return nil
