@@ -33,7 +33,10 @@ end
 
 def over?(board)
 draw?(board) || won?(board) && full?(board) || won?(board) && !full?(board)
-  #return true
-#end
-#return false
+end
+
+def winner(board)
+if over?(board)
+  return nil
+end
 end
