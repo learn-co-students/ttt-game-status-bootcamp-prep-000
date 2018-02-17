@@ -28,13 +28,12 @@ board.all? {|filled| filled != " "}
 end
 
 def draw?(board)
-!won?(board) && full?(board) || !won?(board) && !full?(board)
+!won?(board) && full?(board)
 end
 
 def over?(board)
-if draw?(board) || won?(board) && full?(board) || won?(board) && !full?(board)
-  return true
-elsif !won?(board) && !draw?(board) && !full?(board)
-  return false
-end
+draw?(board) || won?(board) && full?(board) || won?(board) && !full?(board)
+  #return true
+#end
+#return false
 end
