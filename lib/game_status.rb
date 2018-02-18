@@ -54,6 +54,7 @@ def over?(board)
 end
 
 def winner(board)
+  #catch the return value from the call to won? in player_won, return the board array with a call to the first method on player_won as the board element
   if player_won = won?(board)
     board[player_won.first]
   end 
