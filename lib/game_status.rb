@@ -5,5 +5,6 @@ end
 
 
 def idk
+  puts 'idk'
 end
 # Define your WIN_COMBINATIONS constant
