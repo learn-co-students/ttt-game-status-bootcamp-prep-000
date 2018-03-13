@@ -1,6 +1,5 @@
 # Helper Method
 def position_taken?(board, index)
-  
   !(board[index].nil? || board[index] == " ")
 end
 
@@ -17,24 +16,33 @@ WIN_COMBINATIONS = [
   ]
 
 def won?(board)
-    oBoard = board.each {|position|  position != "O" ? position = " ": position = "O"}
-    puts oBoard
-    winOidx = ( WIN_COMBINATIONS.index do |combos|
-    combos.all? {|positions|
-    position_taken?(oBoard,positions)}end)
-    
-    xBoard = board.each {|position| position != "X" ? position = " ": position = "X"}
-    winXidx = ( WIN_COMBINATIONS.index do |combos|
-    combos.all? {|positions|
-    position_taken?(xBoard,positions)}end)
-  
-    if !(board.include?("X") || board.include?("O"))
-      return false # empty board
-    elsif !winOidx.nil? 
-      return WIN_COMBINATIONS[winOidx]
-    elsif !winXidx.nil?
-      return WIN_COMBINATIONS[winXidx]
-    else
-      return false  #no winning combos = draw
+  #No X or O = Empty -> return false 
+  if !(board.include?("X") || board.include?("O"))
+    return false
+  else #there are values! check for winners
+    #start with exit
+    puts WIN_COMBINATIONS.select do |combos|
+      var x = 0 
+      var o = 0
+      
+      combos.all? do |position|
+        if board(position) == "X"
+          x += 1
+          if x == 3
+            return true
+          end
+        elsif board(position) == "O"
+          o += 1
+          if o == 3
+            return true
+          end
+        elsif board(position) != "O" && board(position) != "X" 
+        #if neither then can't win
+          return false
+        else 
+          return false
+        end
+      end
     end
+  end
 end
