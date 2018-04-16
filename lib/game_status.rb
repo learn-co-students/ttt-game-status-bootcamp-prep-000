@@ -59,7 +59,9 @@ end
   if (!won?(board))
     return nil 
   else 
-  if (won?(board) && win_combo = "X")
+    w_array = won?(board)
+    position_1 = w_array[0]
+  if (board[position_1] == "X")
   return "X"
   else 
   return "O"
