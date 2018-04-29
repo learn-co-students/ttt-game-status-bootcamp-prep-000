@@ -35,10 +35,14 @@ def over?(board)
 end
 
 def winner(board)
-  winning_combination = won?(board)
-  if !winning_combination
-    return nil
-  end
-  first_winning_index = winning_combination[0]
+   if winning_combination = won?(board)
+
+first_winning_index = winning_combination[0]
   board[first_winning_index]
-   end
+  end
+end
+def winner(board)
+  if won?(board)
+    board[won?(board).first]
+  end
+end
