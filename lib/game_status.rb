@@ -58,22 +58,22 @@ def over?(board)
 end
 
 def winner(board)
-  win_combo_x = []
-  win_combo_o = []
-  board.each do |token|
-    if token == "X"
-      win_combo_x << "X"
-    elsif token == "O"
-      win_combo_o << "O"
-    else
-      false
-    end
-  end
-  if win_combo_x == ["X","X","X"]
-    return "X"
-  elsif win_combo_o == ["O","O","O"]
-    return "O"
-  else
-    return nil
-  end
+  WIN_COMBINATIONS.select do |win_combo|
+    index_1 = win_combo[0]
+    index_2 = win_combo[1]
+    index_3 = win_combo[2]
+
+    position_1 = board[index_1]
+    position_2 = board[index_2]
+    position_3 = board[index_3]
+
+if (position_1 == "X" && position_2 == "X" && position_3 == "X")
+  return "X"
+elsif   (position_1 == "O" && position_2 == "O" && position_3 == "O")
+  return "O"
+else
+  false
+end
+end
+return nil
 end
