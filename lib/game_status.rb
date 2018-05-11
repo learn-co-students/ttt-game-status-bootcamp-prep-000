@@ -15,19 +15,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-
-=begin
-1. loop through win WIN_COMBINATIONS
-
-2. match the win combination values with board indexes
-
-3. compare those values to see if they're all X or O's
-
-4. if so return the matching WIN_COMBINATION
-=end
-
 result = false
-
 WIN_COMBINATIONS.each do |set|
   if board[set[0]] == "X" && board[set[1]] == "X" && board[set[2]] == "X"
     result = set
@@ -35,11 +23,14 @@ WIN_COMBINATIONS.each do |set|
     result = set
   end
 end
-
 result
 end
 
 def full?(board)
+filled = board.all? do |spot|
+  spot != " " && spot != ""
+end
+filled
 end
 
 def draw?(board)
