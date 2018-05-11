@@ -34,10 +34,18 @@ filled
 end
 
 def draw?(board)
+  won?(board) == false && full?(board)
 end
 
 def over?(board)
+  won?(board) != false || draw?(board)
 end
 
 def winner(board)
+  outcome = won?(board)
+  if outcome != false
+    board[outcome[0]]
+  else
+    nil
+  end
 end
