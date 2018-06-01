@@ -26,7 +26,7 @@ def won?(board)
 end
 
 def full?(board)
-  status = board.select{|i| i == "X" || i == "O"}
+  status = board.select{ |cell| cell == "X" || cell == "O" }
   return status.length == 9
 end
 
