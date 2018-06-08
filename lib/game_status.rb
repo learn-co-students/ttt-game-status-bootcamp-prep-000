@@ -45,11 +45,7 @@ def full?(board)
 end
 
 def draw?(board)
-  if !(won?(board)) && full?(board)
-    return TRUE
-  elsif (!(won?(board)) && !(full?(board))) || won?(board)
-    return FALSE
-  end
+  !(won?(board)) && full?(board)
 end
 
 def over?(board)
@@ -58,10 +54,6 @@ end
 
 def winner(board)
   if won?(board)
-    if won?(board).all? {|position| board[position] == "X"}
-      return "X"
-    elsif won?(board).all? {|position| board[position] == "O"}
-      return "O"
-    end
+    board[won?(board).first]
   end
 end
