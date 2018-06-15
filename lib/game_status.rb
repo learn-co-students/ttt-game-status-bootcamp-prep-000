@@ -36,3 +36,26 @@ def won?(board)
   return false
 end
 
+def full?(board)
+  is_full = board.all? do |index|
+    (index == "X" || index == "O")
+  end
+  return is_full
+end
+
+def draw?(board)
+  return (!won?(board) && full?(board))
+end
+
+def over?(board)
+  return (won?(board) || full?(board) || draw?(board))
+end
+
+def winner(board)
+  if(over?(board) && won?(board))
+    combo = won?(board)
+    return board[combo[0]]
+  else
+    return nil
+  end
+end
