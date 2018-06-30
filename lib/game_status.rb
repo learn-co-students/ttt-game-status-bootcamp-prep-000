@@ -16,7 +16,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board) # Return the win combination, if any. Otherwise, return false.
-  # Maybe I should make this easier to read...
+  # Maybe I should make this easier to read (see Solution for better code)
   WIN_COMBINATIONS.each do|win_combination| # Examine each 3-element win_combination
     
     # all_x is true if the board has an "X"
