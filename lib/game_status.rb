@@ -37,8 +37,8 @@ end
 
 
 def full?(board)
-  board.all? do |box|
-    box == "X" || box == "O"
+  board.all? do |space|
+    space == "X" || space == "O"
   end
 end
 
@@ -62,7 +62,7 @@ def winner(board)
   else WIN_COMBINATIONS.each do |win_combination|
     if position_1 = "X" && position_2 = "X" && position_3 = "X"
       return 'X'
-    elsif position_1 = "O" && position_2 = "O" && position_3 = "O"
+    elsif position_1 ="O" && position_2 = "O" && position_3 = "O"
       return 'O'
     end
   end
