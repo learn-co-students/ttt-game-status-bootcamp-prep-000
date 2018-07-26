@@ -15,11 +15,16 @@ WIN_COMBINATIONS =
 [2, 4, 6]]
 
 def winner(board)
-  if won?(board) != false
-   new_array = won?(board)
-   return board[new_array[0]]
-
-end 
+  if won?(board)
+  exes = board.select {|number| number == "X"}
+  ohs = board.select {|number| number == "O"}
+  if exes.count <= ohs.count
+    return "O"
+  else 
+    return "X"
+end
+end
+return nil 
   end
   
 plays = []
