@@ -14,18 +14,6 @@ WIN_COMBINATIONS = [
   [6,4,2]
   ]
   
-  #def won?(board)
-   # WIN_COMBINATIONS.detect do |position|
-    #  if (board[position[0]]) == "X" && (board[position[1]]) == "X" && (board[position[2]]) == "X"
-     #   return position
-      #elsif (board[position[0]]) == "O" && (board[position[1]]) == "O" && (board[position[]]) == "O"
-       # return position
-      #else
-      #  false
-      #end
-    #end
-  #end
-  
   def won?(board)
     WIN_COMBINATIONS.detect do |win_combo|
       board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board, win_combo[1])
