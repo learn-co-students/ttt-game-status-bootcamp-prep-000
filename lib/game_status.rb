@@ -14,29 +14,37 @@ WIN_COMBINATIONS = [
   [6,4,2]
   ]
   
+  #def won?(board)
+   # WIN_COMBINATIONS.detect do |position|
+    #  if (board[position[0]]) == "X" && (board[position[1]]) == "X" && (board[position[2]]) == "X"
+     #   return position
+      #elsif (board[position[0]]) == "O" && (board[position[1]]) == "O" && (board[position[]]) == "O"
+       # return position
+      #else
+      #  false
+      #end
+    #end
+  #end
+  
   def won?(board)
-    win_index_1 = WIN_COMBINATIONS[0]
-    win_index_2 = WIN_COMBINATIONS[1]
-    win_index_3 = WIN_COMBINATIONS[2]
-    win_index_4 = WIN_COMBINATIONS[3]
-    win_index_5 = WIN_COMBINATIONS[4]
-    win_index_6 = WIN_COMBINATIONS[5]
-    win_index_7 = WIN_COMBINATIONS[6]
-    win_index_8 = WIN_COMBINATIONS[7]
-    win_index_9 = WIN_COMBINATIONS[8]
-    
-    position_1 = board[win_index_1]
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-    position_4 = board[win_index_4]
-    position_5 = board[win_index_5]
-    position_6 = board[win_index_6]
-    position_7 = board[win_index_7]
-    position_8 = board[win_index_8]
-    position_9 = board[win_index_9]
-    
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return win_combination
-      else false
+    WIN_COMBINATIONS.detect do |win_combo|
+      board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board, win_combo[1])
     end
+  end
+  
+  
+  def full?(board)
+    board.all?{|occupied| occupied != " "}
+  end
+  
+  def draw?(board)
+    !(won?(board)) && (full?(board))
+  end
+  
+  def over?(board)
+    (won?(board)) || (full?(board)) || (draw?(board))
+  end
+  
+  def over?(board)
+    (won?(board)) || (full?(board)) || (draw?(board))
   end
