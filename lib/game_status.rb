@@ -4,41 +4,35 @@ def position_taken?(board, index)
 end
 
 # Define your WIN_COMBINATIONS constant
-WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8],
-                    [0,3,6],[1,4,7],[2,5,8],
-                    [0,4,8],[2,4,6]]
+WIN_COMBINATIONS = [[0,1,2],
+                    [3,4,5],
+                    [6,7,8],
+                    [0,3,6],
+                    [1,4,7],
+                    [2,5,8],
+                    [0,4,8],
+                    [2,4,6]]
 
 def won?(board)
-  win = []
-  WIN_COMBINATIONS.each do |win_combo|
-  
-    if((board[win_combo[0]] == "X" && board[win_combo[1]] == "X" &&              board[win_combo[2]] == "X") ||
-      (board[win_combo[0]] == "O" && board[win_combo[1]] == "O" &&
-       board[win_combo[2]] == "O"))
-      win = win_combo
-    end
-  end
-  if(!win.empty?)
-    win
+
+  WIN_COMBINATIONS.detect do |win_combo|
+    position_taken?(board, win_combo[0]) &&
+    board[win_combo[0]] == board[win_combo[1]] &&
+    board[win_combo[1]] == board[win_combo[2]]
+    
   end
 end
 
 def full?(board)
-  board.all?  do |space| 
-    space == "X" || space == "O"
-  end
+  board.all? {|token| token == "X" || token == "O"}
 end
 
 def draw?(board)
-    if(full?(board) && !won?(board))
-      true
-    end
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  if(won?(board) || draw?(board))
-    true
-  end
+  won?(board) || draw?(board)
 end
 
 def winner(board)
