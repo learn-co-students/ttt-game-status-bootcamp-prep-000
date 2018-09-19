@@ -24,20 +24,15 @@ WIN_COMBINATIONS.each do |win_combination|
   position_1 = board[win_index_1] 
   position_2 = board[win_index_2] 
   position_3 = board[win_index_3]
-  empty_board = board.all? {|x| x == " "}
-  full_board = board.none? {|x| x == " "}
-  if empty_board
-      return false
-  elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
+  if position_1 == "X" && position_2 == "X" && position_3 == "X"
     return win_combination
   elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
     return win_combination
-  elsif full_board
-      return false
   else
     false
   end
   end
+  false
 end
 
 #Full? Method
@@ -54,8 +49,31 @@ def draw?(board)
 end
 end
 
+
 #over?
 def over?(board)
   won?(board) || full?(board) || draw?(board) ? true : false
 end
+
+#winner?
+#winner
+def winner(board)
+  WIN_COMBINATIONS.each do |win_combination|
+  win_index_1 = win_combination[0]
+  win_index_2 = win_combination[1]
+  win_index_3 = win_combination[2]
+  position_1 = board[win_index_1] 
+  position_2 = board[win_index_2] 
+  position_3 = board[win_index_3]
+  if position_1 == "X" && position_2 == "X" && position_3 == "X"
+    return "X"
+  elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+    return "O"
+  else
+    nil
+  end
+  end
+  nil
+end
+
 
