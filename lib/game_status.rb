@@ -60,8 +60,6 @@ def winner(board)
    board[winner]
  end
 end
- 
-#if the win_combination that is returned in the variable "won" in the 
-#method won? is equal to 
+
 
   
