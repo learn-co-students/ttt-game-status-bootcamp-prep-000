@@ -22,16 +22,9 @@ def won?(board)
 end
 
 def full?(board)
-  for place in board
-    if place.match("") or place.match(" ")
-      return false
-    end
-  end
-  true
+ board.all?{|place| place == "X" || place == "O"}
 end
 
 def draw?(board)
-  if board.full? == false
-    return false
-  end
+  full?(board) and !won?(board)
 end
