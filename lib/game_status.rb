@@ -38,6 +38,3 @@ def winner(board)
      board[win.first]
   end
 end
-
-
-  
