@@ -22,9 +22,13 @@ def won?(board)
 end
 
 def full?(board)
- board.all?{|place| place == "X" || place == "O"}
+ board.all?{|place| place == "X" or place == "O"}
 end
 
 def draw?(board)
   full?(board) and !won?(board)
+end
+
+def over?(board)
+  won?(board) or full?(board)
 end
