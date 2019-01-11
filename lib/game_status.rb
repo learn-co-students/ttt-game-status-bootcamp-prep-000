@@ -68,8 +68,32 @@ def won?(board)
       false
     end
   end
-  #binding.pry
+  if false
+    return false
+  end
 end
     
-        
+def full?(board)  
+  if board.include? " "
+    false
+  else
+    true
+  end
+end
+
+def draw?(board)
+  if full?(board) && !won?(board) 
+    true
+  elsif won?(board)
+    false
+  else
+    false
+  end
+end
+
+def over?(board)
+  if won?board || draw?(board) || full?(board)
+    true
+  end
+end
     
