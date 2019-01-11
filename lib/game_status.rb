@@ -17,39 +17,8 @@ WIN_COMBINATIONS = [
   [2,4,6], # Right diagonal
   ]
   
-# 
-# board = ["X", "X", "X", " ", " ", " ", " ", " ", " "] 
- 
-# winners = [
-#     [board [0..2]],
-#     [board [3..5]],
-#     [board [6..8]],
-#     [board[0], board[3],board[6]], 
-#     [board[1], board[4],board[7]], 
-#     [board[2], board[5],board[8]], 
-#     [board[0], board[4],board[8]], 
-#     [board[2], board[4],board[6]]
-#     ]
-
-# def won?(board, winners)
-#   winning_combo = []
-#   winners.each do |combo|
-#     if combo[0].all? "X" || combo[0].all? "O"
-#       winning_combo<< combo
-#     end
-#   end
-#   winning_combo
-# end
-
-# won?(board,winners)
-
-
-# board = ["X", "X", "X", " ", " ", " ", " ", " ", " "] 
-# combo = [board [0..2]]
-# puts combo if combo[0].all? "X"
 
 def won?(board)
-  winning_combo = []
   WIN_COMBINATIONS.each do |win_combination|
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
@@ -71,6 +40,7 @@ def won?(board)
   if false
     return false
   end
+  #binding.pry
 end
     
 def full?(board)  
@@ -92,8 +62,15 @@ def draw?(board)
 end
 
 def over?(board)
-  if won?board || draw?(board) || full?(board)
-    true
+  won?(board) || draw?(board) || full?(board)
+end
+ 
+ 
+def winner(board)
+  if won?(board)
+    board[won?(board)[0]]
+  elsif !won?(board)
+    nil
   end
 end
     
