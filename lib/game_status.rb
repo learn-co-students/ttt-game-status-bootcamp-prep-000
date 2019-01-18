@@ -38,8 +38,8 @@ WIN_COMBINATIONS = [
   end
   
   def winner(board)
-    if
     winner = won?(board)
+    if winner != nil
     board[winner[0]]
   end
   end
