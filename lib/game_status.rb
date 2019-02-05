@@ -34,7 +34,7 @@ def won?(board)
 end
 
 def full?(board)
-  board.none?{|space| space === " "} && !won?(board) ? true : false
+  board.none?{|space| space === " "} && !won?(board)
 end
 
 def draw?(board)
@@ -42,8 +42,7 @@ def draw?(board)
 end
 
 def over?(board)
-  draw?(board) || won?(board) ? true : false
-end
+  draw?(board) || won?(board)
 
 def winner(board)
   winning_indices = won?(board)
