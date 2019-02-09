@@ -17,12 +17,14 @@ WIN_COMBINATIONS = [
   
 def won?(board)
   win_combination = []
+  winner = []
   WIN_COMBINATIONS.each do |combination|
     if position_taken?(board, combination[0]) && position_taken?(board, combination[1]) && position_taken?(board, combination[2]) && board[combination[0]] == board[combination[1]] && board[combination[0]] == board[combination[2]]
        win_combination << combination
+       winner << board[combination[0]]
     end   
   end
-  win_combination.length == 1 ? win_combination[0] : nil
+  win_combination.length == 1 || (win_combination.length == 2 && winner[0] == winner[1])? win_combination[0] : nil
 end
 
 def full?(board)
@@ -37,4 +39,12 @@ end
 
 def draw?(board)
   full?(board) && won?(board) == nil
+end
+
+def over?(board)
+  won?(board) != nil || draw?(board) || full?(board)
+end
+
+def winner(board)
+  won?(board) != nil ? board[won?(board)[0]] : nil
 end  
