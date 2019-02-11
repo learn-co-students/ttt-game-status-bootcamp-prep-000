@@ -25,12 +25,35 @@ def won?(board)
     position_2 = board[win_index_2]
     position_3 = board[win_index_3]
     
-    if position_1 == position_2 && position_2 == position_3 && position_taken?(board,index)
+    if position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
       return win_combination
-    else
-      false
     end
-  end
+  end 
+  false 
 end  
     
+def full?(board)
+   board.all?{|i| i == "X" || i == "O"}
+end
  
+def draw?(board)
+   if !won?(board) && full?(board)
+    return true
+   elsif !won?(board) && !full?(board)
+    return false 
+   end
+end
+ 
+def over?(board)
+   if won?(board) || draw?(board) || full?(board)
+    true
+   elsif !full?(board)
+    false
+  end
+end
+   
+def winner(board)
+  if won?(board)
+    return board[won?(board)[0]]
+  end
+end
