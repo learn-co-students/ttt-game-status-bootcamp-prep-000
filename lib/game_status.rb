@@ -18,12 +18,7 @@ def won?(board)
 end
 
 def full?(board)
-  board.each { |square|
-    if !(square == "X" || square == "O")
-      return false
-    end
-  }
-  return true
+  return !board.find { |square| square != "X" && square != "O"}
 end
 
 def draw?(board)
