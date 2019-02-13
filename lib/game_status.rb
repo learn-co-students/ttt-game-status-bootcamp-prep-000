@@ -10,17 +10,35 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   WIN_COMBINATIONS.each { |key|
-    if (board[key[0]] == "X" && board[key[1]] == "X" && board[key[2]] == "X") || (board[key[0]] == "O" && board[key[1]] == "O" && board[key[2]] == "O")
+    if key.all? { |index| board[index] == "X" } || key.all? { |index| board[index] == "O" }
       return key
     end
   }
   return false
 end
 
-def wondebug(board)
-  WIN_COMBINATIONS.each { |key|
-    print board[key[0]]
-    print board[key[1]]
-    puts board[key[2]]
+def full?(board)
+  board.each { |square|
+    if !(square == "X" || square == "O")
+      return false
+    end
   }
+  return true
+end
+
+def draw?(board)
+  return (!won?(board) and full?(board))
+end
+
+def over?(board)
+  return (won?(board) or full?(board))
+end
+
+def winner(board)
+  if won?(board)
+#    puts won?(board)
+#    puts board[3]
+#    puts board[won?(board)[0]]
+    return board[won?(board)[0]]
+  end
 end
