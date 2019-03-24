@@ -1,9 +1,8 @@
 
 
 # Define your WIN_COMBINATIONS constant
-board = ["X", "X", "X", "O", "X", "O", "O", "O", "X"]
+#board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
 WIN_COMBINATIONS = [[0, 1, 2],[3, 4, 5],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8],[0, 4, 8],[2, 4, 6]]
-won = false
 
 # Helper Method
 def position_taken?(board, index)
@@ -49,26 +48,33 @@ def full?(board)
     false
     end
 end
-  
+
 def draw?(board)
-  won?(board)
-  if full?(board) == true && won == true
-    puts false
+    won = won?(board).is_a? Array   
+    if (full?(board) == true || full?(board) == false) && won == true
+    false
+    elsif full?(board) == true && won == false
+     true
     end 
 end
 
-draw?(board)
+def over?(board)
+  won = won?(board).is_a? Array
+  if draw?(board) == true
+    true
+  else
+    false
+  end
+  
+  
+  end
+end
+    
+  
 
 
 
 
 
-#def draw?(board)
-  #if (full?(board) == true || full?(board) == false && won?(board)== true
-    #print false
-  #elsif full?(board) == true && won?(board) == false
-    #print true
-  #end
-#end
 
   
