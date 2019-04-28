@@ -1,12 +1,15 @@
 # # Helper Method
+
+require "pry"
+
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
-# def input_to_index(user_input)
-#   user_input = user_input.to_i-1
-#   puts user_input
-# end 
+def input_to_index(user_input)
+  user_input = user_input.to_i-1
+  puts user_input
+end 
 
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
@@ -22,41 +25,44 @@ WIN_COMBINATIONS = [
 
 
 def won?(board)
-  win = false 
  WIN_COMBINATIONS.each do |combo| 
   if position_taken?(board, combo[0]) && board[combo[0]] === board[combo[1]] && board[combo[1]] === board[combo[2]] 
-    win = true 
    return combo
- else return false 
+end 
 end
-end
+return false
 end 
  
-# # && 
-# #     won = true 
-#   board.all? || board.none?)
+
 
 def full?(board)
-# board.map do |index|
-# end
+  if board.all? {|token| token == "X" || token == "O"} 
+      return true
+    end
+  return false 
+end 
+
+def draw?(board)
+if full?(board) && !(won?(board)) 
+  true  
+else false 
+end 
+end 
+
+def over?(board)
+if draw?(board) || won?(board)
+  true
+else false 
+end 
+end 
+
+
+def winner(board) 
+  if won?(board)
+    WIN_COMBINATIONS.each do |combo| 
+      if position_taken?(board, combo[0]) && board[combo[0]] === board[combo[1]] && board[combo[1]] === board[combo[2]] 
+    return board[combo[0]]   
+end 
 end
-
-# def draw?(board)
-#   if board[combo] === false
-#     return true 
-#   end 
-# end
-
-# def over?(board)
-# if draw? === true 
-# else if won? === true 
-# return true
-# else
-#   return false 
-# end
-# end
-# end 
-
-
-# # def winner() 
-# # end 
+end 
+end 
