@@ -43,14 +43,14 @@ You could represent that as the indexes of the board `[0,1,2]`.
 
 ```ruby
 # Board with winning X in the top row.
-board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
+board = ["T", "T", "T", " ", " ", " ", " ", " ", " "]
 
 # Definition of indexes that compose a top row win.
 top_row_win = [0,1,2]
 
 # Check if each index in the top_row_win array contains an "X"
-if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row_win[2]] == "X"
-  "X won in the top row"
+if (board[top_row_win[0]] == "X" || board[top_row_win[0]] == "O") && (board[top_row_win[1]] == "X" || board[top_row_win[1]] == "O") && (board[top_row_win[2]] == "X" || board[top_row_win[2]] == "O")
+  "O won in the top row"
 end
 ```
 
