@@ -3,6 +3,7 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
+=begin
 top_row_win = [0,1,2]
 midde_row_win = [3,4,5]
 bottom_row_win = [6,7,8]
@@ -11,7 +12,7 @@ second_clm_win = [1,4,7]
 third_clm_win = [2,5,8]
 first_diag_win = [0,4,8]
 second_diag_win = [2,4,6]
-
+=end 
 
 WIN_COMBINATIONS = [
   [0,1,2],
@@ -76,5 +77,3 @@ def winner (board)
     end
   end
 end
-
-
