@@ -34,3 +34,13 @@ def won?(board)
   return false
 end 
 
+def full?(board)
+  new_board = board.reject{|empty_space| empty_space == " "}
+  if new_board.length == 9
+    return true
+  else
+    false
+  end 
+end 
+
+
