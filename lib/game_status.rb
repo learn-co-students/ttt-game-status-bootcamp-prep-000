@@ -16,30 +16,6 @@ end
 
 WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
-def x_slots_array(board)
-  x_array = []
-  index = 0
-  board.each do |board_space|
-    if(board_space == "X")
-      x_array << index
-    end
-    index += 1
-  end
-  x_array
-end
-
-def o_slots_array(board)
-  o_array = []
-  index = 0
-  board.each do |board_space|
-    if(board_space == "O")
-      o_array << index
-    end
-    index += 1
-  end
-  o_array
-end
-
 def full?(board)
   moves_completed(board) == 9
 end
