@@ -33,16 +33,10 @@ def won?(board)
       if board[win_combination[0]] == board[win_combination[1]] && board[win_combination[1]] == board[win_combination[2]] && board[win_combination[0]] != " " && board[win_combination[1]] != " " && board[win_combination[2]] != " "
         puts "win combination"
         return win_combination
-      else
-        puts "win combination false"
-        puts "win comb1  #{win_combination[0]}"
-        puts "win comb2 #{win_combination[1]}"
-        puts "win comb3 #{win_combination[2]}"
-        return false
       end
     end
   end
-  return false
+  false
 end
 
 def full?(board)
