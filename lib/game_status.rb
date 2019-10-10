@@ -19,6 +19,7 @@ def won?(board)
   # return false/nil if there is no win combination.
   # return the winning combination indexes as an array if there is a win.
   
+  if 
   # The all? method returns true if the block never returns false or nil for any element passed to it:
   WIN_COMBINATIONS.each do |win_combo|
       all_taken = win_combo.all? do |index|   # grab each index from the win_combo that composes a win.
@@ -26,6 +27,11 @@ def won?(board)
          position_taken?(board, index)        # Will evaluate to true if all indexes are occupied.
       end
       puts all_taken
+      if all_taken
+        puts win_combo
+        return win_combo
+      end
+    end  
   end
 end
 
@@ -45,12 +51,3 @@ end
 def over?(board)
   puts "over"
 end
-
-
-
-
-
-
-
-
-
