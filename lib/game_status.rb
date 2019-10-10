@@ -42,13 +42,13 @@ def won?(board)
         
         position_taken?(board, index)   # Will evaluate to true if all indexes are occupied.
       end
-      if all_taken
-        winner = win_combo
+      if all_taken && (win_combo[0] == win_combo[1]) && (win_combo[1] == win_combo[2])              # need to check if all values are the same
+                                  # array.all?{ |element| element == array[0] }
+           winner = true
+           return win_combo
       end
     end
-    if winner
-      return winner
-    elsif !winner && full?(board)  # DRAW!
+    if !winner
       return false
     end  
   end
@@ -59,8 +59,17 @@ end
 board = ["X", "X", "X", "O", "O", " ", " ", " ", " "]
 won?(board)
 
-
-
+def full?(board)
+  # returns true for a FULL board (a draw)
+  # the all? method returns true if the block never returns false or nil for any element passed to it:
+  
+  board.each do |this_pos|
+    if (this_pos.nil? || this_pos == " " ) # if either of these are true, the spot is empty, return false.
+      return false
+    end
+    return true
+  end
+end
 
 def draw?(board)
   if full?(board)  #returns true for a draw
@@ -74,3 +83,5 @@ def over?(board)
   end
   return false
 end
+
+
