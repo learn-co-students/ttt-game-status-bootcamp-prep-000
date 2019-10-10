@@ -2,17 +2,29 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
-board = ["X", "X", "X", "O", "O", " ", " ", " ", " "]
-WIN_COMBINATIONS = [
-  [0,1,2], # Top row
-  [6,7,8] # Bottom row
-]
 
-# The all? method returns true if the block never returns false or nil for any element passed to it:
-  WIN_COMBINATIONS.each do |win_combo|
-      all_taken = win_combo.all? do |index|   # grab each index from the win_combo that composes a win.
-            #  [0,1,2]                        # see if all winning positions are occupied in THIS combo ...
-         position_taken?(board, index)        # Will evaluate to true if all indexes are occupied.
-      end
-      puts all_taken
+def full?(board)
+  # returns true for a FULL board (a draw)
+  # the all? method returns true if the block never returns false or nil for any element passed to it:
+  
+  board.each do |this_pos|
+    if (this_pos.nil? || this_pos == " " ) # if either of these are true, the spot is empty, return false.
+      return false
+    end
+    return true
   end
+end
+
+board = [" ", "", "X", "O", "O", " ", " ", " ", " "]
+#board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+
+isFull = full?(board)
+puts "full? is: "
+puts isFull
+
+
+
+
+
+
+
