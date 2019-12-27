@@ -92,7 +92,6 @@ def winner(board)
                 else    
                     return #"no winner"
             end
-            
     end
     # return false
 end 
