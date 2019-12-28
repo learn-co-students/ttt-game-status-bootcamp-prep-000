@@ -69,35 +69,3 @@ def winner(board)
     return board[combo[0]]
   end
 end
-    # if over?(board)
-      
-    #         countX = 0 
-    #         countO = 0 
-    #         WIN_COMBINATIONS.each do |combination| 
-    #             win_index_1 = combination[0]
-    #             win_index_2 = combination[1]
-    #             win_index_3 = combination[2]
-    #             position_1 = board[win_index_1] 
-    #             position_2 = board[win_index_2] 
-    #             position_3 = board[win_index_3] 
-    #             if (position_1 == "X" && position_2 == "X" && position_3 == "X") 
-    #                 countX +=  1 
-    #             elsif
-    #                 (position_1 == "O" && position_2 == "O" && position_3 == "O")
-    #                 countO += 1
-                    
-    #                 # return combination 
-    #             else 
-    #                 false
-    #             end
-    #         end 
-    #         if countX>countO
-    #                 return "X"
-    #             elsif countX<countO
-    #                 return "O"
-    #             else    
-    #                 return #"no winner"
-    #         end
-    # end
-    # return false
-# end 
