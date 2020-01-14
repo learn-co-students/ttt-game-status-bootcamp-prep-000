@@ -4,3 +4,72 @@ def position_taken?(board, index)
 end
 
 # Define your WIN_COMBINATIONS constant
+WIN_COMBINATIONS = [
+  [0,1,2],
+  [3,4,5],
+  [6,7,8],
+  [0,3,6],
+  [1,4,7],
+  [2,5,8],
+  [0,4,8],
+  [2,4,6]
+]
+
+def won?(board)
+  #put all possible winning rows into a collection
+  possible_wins = WIN_COMBINATIONS.select do |combo|
+#    puts "checking winning combo #{combo}"
+    combo.all? do |index|
+#      puts "Checking position take?"
+      position_taken?(board, index)
+    end
+  end
+#  puts "possible wins are #{possible_wins}"
+  if possible_wins.empty?
+    return false
+  end
+  #check if any combos are actually wins
+  possible_wins.each do |pw|
+#    puts "checking #{pw}"
+    if (pw.all?{|i| board[i] == "X"} || pw.all?{|i| board[i] == "O"})
+#      puts "winning_combo is #{pw}"
+      return pw
+    else
+#      puts "not a win"
+    end
+  end
+  
+  #return false if nothing has won
+  return false
+end
+
+def full?(board)
+  board.all? do |position|
+    !(position == " ")
+  end
+end
+
+def draw?(board)
+  if won?(board)
+    return false
+  elsif full?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    return true
+  end
+end
+
+def winner(board)
+  if won?(board)
+    winning_combo = won?(board)
+    return board[winning_combo[0]]
+  else
+    return nil
+  end
+end
