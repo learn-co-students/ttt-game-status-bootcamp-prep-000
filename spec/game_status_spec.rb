@@ -49,7 +49,6 @@ describe "./lib/game_status.rb" do
 
     it 'returns an array of matching indexes for a left column win' do
       board = ["O", " ", "X", "O", " ", "X", "O", " ", " "]
-
       expect(won?(board)).to match_array([0,3,6])
     end
 
