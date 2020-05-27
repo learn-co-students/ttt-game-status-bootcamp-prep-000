@@ -25,23 +25,19 @@ def won?(board)
   end  
 end
 
-def full?()
+def full?(board)
   
 end
 
-def draw?()
+def draw?(board)
   
 end
 
-def draw?()
+def over?(board)
   
 end
 
-def over?()
-  
-end
-
-def winner()
+def winner(board)
   
 end
 
