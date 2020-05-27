@@ -27,13 +27,19 @@ end
 
 def full?(board)
   board.each_index.all? do |index|
-    if board[index] == "X" || board[index] == "O"
-      return true 
+    if board[index] == "X" || board[index] == "O" 
+      true 
     else
-      return nil 
+      false  
     end
   end
 end
+
+# def full?(board)
+#   board.each_index.all? do |index|
+#     position_taken?(board, index)
+#   end 
+# end
 
 def draw?(board)
   
