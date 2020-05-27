@@ -26,7 +26,13 @@ def won?(board)
 end
 
 def full?(board)
-  
+  board.all? do |index|
+    if position_taken?(board, index) 
+      return true 
+    else
+      return false 
+    end
+  end
 end
 
 def draw?(board)
