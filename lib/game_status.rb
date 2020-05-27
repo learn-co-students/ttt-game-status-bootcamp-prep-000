@@ -42,7 +42,16 @@ end
 # end
 
 def draw?(board)
+  #true if the board has not been won but is full
+  #false if the board is not won and the board is not full
+  #false if the board is won
   
+  board.each_index.any? do |index|
+    full?(board)
+  end  
+  board.each_index.any? do |index|
+    won?(board)
+  end
 end
 
 def over?(board)
