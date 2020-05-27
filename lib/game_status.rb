@@ -47,10 +47,11 @@ def draw?(board)
   #false if the board is won
   
   board.each_index.any? do |index|
-    full?(board)
-  end  
-  board.each_index.any? do |index|
-    won?(board)
+    true if full?(board) && !won?(board)
+    board.each_index.any? do |index|
+      false if !full?(board) && won?(board)
+      
+    end
   end
 end
 
