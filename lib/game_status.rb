@@ -51,7 +51,8 @@ end
 
 
 def winner(board)
-  WIN_COMBINATIONS.each do |winning_array|
+  
+  winning_array.any? do |?|
     if won?(board)
       if board.at(winning_array[0]) === "X"  
         return "X" 
