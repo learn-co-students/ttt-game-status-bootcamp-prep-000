@@ -49,25 +49,20 @@ def over?(board)
   won?(board) || full?(board)
 end
 
+
 def winner(board)
   WIN_COMBINATIONS.each do |winning_array|
-    if winning_array.all?(winning_array == "X") 
-      return "X"
-      
-    
-    elsif winning_array.all?(winning_array == "O") 
-      return "O"
-    
-    else
-      nil
-      
-    end  
+    if won?(board)
+      if board.at(winning_array[0]) == "X"  
+        return "X" 
+      elsif board.at(winning_array[0]) == "O"
+        return "O"
+        
+      end
+    end
+     return nil
   end
 end
-
-
-
-
 
 
 
