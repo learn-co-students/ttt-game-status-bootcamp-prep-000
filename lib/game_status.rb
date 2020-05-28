@@ -51,18 +51,22 @@ end
 
 
 def winner(board)
+  winning_array = won?(board)
   
-  winning_array.any? do |?|
-    if won?(board)
-      if board.at(winning_array[0]) === "X"  
-        return "X" 
-      elsif board.at(winning_array[0]) === "O"
-        return "O"
+  
+  binding.pry
+  
+  # winning_array.any? do |i|
+  #   if won?(board)
+  #     if board.at(winning_array[0]) === "X"  
+  #       return "X" 
+  #     elsif board.at(winning_array[0]) === "O"
+  #       return "O"
         
-      end
-    end
-     return nil
-  end
+  #     end
+  #   end
+  #   return nil
+  # end
 end
 
 
