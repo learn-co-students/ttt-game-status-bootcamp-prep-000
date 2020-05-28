@@ -53,9 +53,9 @@ end
 def winner(board)
   WIN_COMBINATIONS.each do |winning_array|
     if won?(board)
-      if board.at(winning_array[0]) == "X"  
+      if board.at(winning_array[0]) === "X"  
         return "X" 
-      elsif board.at(winning_array[0]) == "O"
+      elsif board.at(winning_array[0]) === "O"
         return "O"
         
       end
