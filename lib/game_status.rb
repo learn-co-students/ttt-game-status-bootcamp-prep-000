@@ -42,27 +42,27 @@ end
 # end
 
 def draw?(board)
-  #true if the board has not been won but is full
-  #false if the board is not won and the board is not full
-  #false if the board is won
-  
-  board.each_index.any? do |index|
-    true if full?(board) && !won?(board)#full = true and won = false 
-    board.each_index.any? do |index|
-      false if !full?(board) && !won?(board)#full = true and won = true 
-      board.each_index.any? do |index|
-        false if won?(board)#won = false 
-      end  
-    end
-  end
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  
+  won?(board) || full?(board)
 end
 
 def winner(board)
-  
+  WIN_COMBINATIONS.each do |winning_array|
+    if winning_array.all?(winning_array == "X") 
+      return "X"
+      
+    
+    elsif winning_array.all?(winning_array == "O") 
+      return "O"
+    
+    else
+      nil
+      
+    end  
+  end
 end
 
 
