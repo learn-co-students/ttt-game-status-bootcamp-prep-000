@@ -9,6 +9,7 @@ end
 #end
 
 # Define your WIN_COMBINATIONS constant
+
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -20,11 +21,15 @@ WIN_COMBINATIONS = [
   [2,4,6],
 ]
 
-def won(board)
-  WIN_COMBINATIONS.each do |win_combination[0],win_combination[1],win_combination[2]|
-    if win_combination[0],win_combination[1],win_combination[2] == "X"
-      return WINNER!
-    else
-      return false
+def won?(board)
+  WIN_COMBINATIONS.each do | combinations |
+
+    if board[combinations[0]] == board[combinations[1]] && board[combinations[1]] == board[combinations[2]] && position_taken?(board, combinations[0])
+      combinations
+      else false
     end
   end
+end
+
+def full?(board)
+end
