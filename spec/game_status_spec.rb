@@ -164,3 +164,20 @@ describe "./lib/game_status.rb" do
     end
   end
 end
+
+
+#Humzah tests
+#
+# describe '#checkArray' do
+#   it 'returns true if array is full' do
+#     board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+#
+#     expect(full?(board)).to be_truthy
+#   end
+#
+#   it 'returns false for an in-progress game' do
+#     board = ["X", " ", "X", " ", "X", " ", "O", "O", " "]
+#
+#     expect(full?(board)).to be_falsey
+#   end
+# end
